@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scrollytelling</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Fonts sytlesheet -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/aviator.css')}}">
+
+  <!-- CSS for Scrollytelling -->
+  <style>
+    /* smooth helps when jumping between sections of the page */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .main {
+      -webkit-overflow-scrolling: touch;
+      transform: translate3d(0, 0, 0);
+    }
+
+    #scrollytelling {
+      position: relative;
+      background-color: white;
+      padding: 1rem;
+    }
+
+    article {
+      z-index: 2 !important;
+      position: relative;
+      padding: 0 1rem;
+      max-width: 20rem;
+      margin: 0 auto;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    figure {
+      z-index: 1 !important;
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      width: 100%;
+      min-height: 480px;
+      margin: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      background-color: white;
+    }
+
+    figure img {
+      margin: auto;
+    }
+
+    .step {
+      position: relative;
+      transition-duration: 0.25s;
+      transition-timing-function: linear;
+      margin: 0 auto 2rem auto;
+      color: black;
+      z-index: 2;
+    }
+
+    .step.last-child {
+      margin-bottom: 0;
+    }
+
+    .step.is-active {
+      color: black;
+    }
+
+    .step p {
+      position: relative;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background-color: #f3f3f3;
+      z-index: 2;
+      border: 2px solid #282828;
+      opacity: 0.95
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Scrollama Container -->
+  <main id="top">
+
+    <!-- Scrollytelling Intro -->
+    <section id="intro">
+      <p><br></p>
+      <h2 style="text-align:center">A Study in Elegance</h2>
+      <h3 style="text-align:center">Scrollytelling <i>Major Key</i></h3>
+      <p><br></p>
+    </section>
+
+    <!-- Main Scrollytelling Section -->
+    <section id="scrollytelling">
+
+      <!-- DJ Khaleed Major Key Cover. Figure sticks in place and updates as the user scrolls -->
+      <figure>
+
+        <!-- This div just helps to center the images -->
+        <div style="text-align:center; height:100%; width:100%">
+          <!-- Individual Images -->
+          <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/Scrollytelling-Course/MajorKey.jpg" alt="MajorKey1" height="100%" width ="auto" id="imgV1" >
+          <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/Scrollytelling-Course/MajorKey2.jpg" alt="MajorKey2" height="100%" width ="auto" id="imgV2" style="display:none">
+          <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/Scrollytelling-Course/MajorKey3.jpg" alt="MajorKey3" height="100%" width ="auto" id="imgV3" style="display:none">
+        </div>
+      </figure>
+
+      <!-- Prose about the album. Each div is a  point about the different versions of the figure -->
+      <article>
+
+        <!-- Message #1 -->
+        <div class="step" data-scrollama-index="0">
+          <p>DJ Khaled's second album, "Major Key," sold 59,000 copies in its first week.</p>
+        </div>
+        
+        <!-- Message #2 -->
+        <div class="step" data-scrollama-index="1">
+          <p>On the album cover, Khaled's hairlines were made sharper with the help of a razor.</p>
+        </div>
+
+        <!-- Message #3 -->
+        <div class="step" data-scrollama-index="2">
+          <p>The lion's hair is just like that naturally.</p>
+        </div>
+
+      </article>
+
+    </section>
+
+    <section id="outro">
+      <p style="text-align : center"><br><a href="#top">Jump to top of page</a><br></p>
+    </section>
+  
+  </main>
+
+
+  <p style="text-align : center"><br><a href="https://www.thrum.engineering/scrollytelling">Learn More About Scrollytelling</a><br></p>
+
+  <!-- This just adds a bunch of space to the bottom of the page -->
+  <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+  
+  <!-- Scrollama javaScript -->
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+
+  <!-- Scrollytelling JavaScript -->
+  <script>
+
+    // Save different parts of the page as D3.js objects. Using d3 for convenience
+    var main = d3.select('main')
+    var scrollySection = main.select('#scrollytelling');
+    var figure = scrollySection.select('figure');
+    var article = scrollySection.select('article');
+    var steps = scrollySection.selectAll('.step');
+
+    var imgV1 = d3.select('#imgV1');
+    var imgV2 = d3.select('#imgV2');
+    var imgV3 = d3.select('#imgV3');
+
+    // Create a scrollama object.
+    var myScrollama = scrollama();
+
+    // These needs to be constants to improve performance on mobile.
+    const stepH = Math.floor(window.innerHeight * 1.8);
+    const figureHeight = window.innerHeight *0.8
+    const figureMarginTop = (window.innerHeight - figureHeight) / 2
+
+    // generic window resize listener event
+    function handleResize() {
+      
+      console.log("handling resize")
+      // 1. update height of step elements
+      steps.style('height', stepH + 'px');
+
+      figure
+        .style('height', figureHeight + 'px')
+        .style('top', figureMarginTop + 'px')
+        .style("z-index", 1);
+
+      article.style("z-index", 3);
+
+      // 3. tell scrollama to update new element dimensions
+      myScrollama.resize();
+
+    }
+
+    // scrollama event handler
+    function handleStepChange(response) {
+      
+      switch(response.index) {
+        case 0:
+          // Set image to first version
+          imgV1.style("display", "block")
+          imgV2.style("display", "none")
+          imgV3.style("display", "none")
+          break;
+
+        case 1:
+          // Set image to second version
+          imgV1.style("display", "none")
+          imgV2.style("display", "block")
+          imgV3.style("display", "none")
+          break;
+
+        case 2:
+          // Set image to third version
+          imgV1.style("display", "none")
+          imgV2.style("display", "none")
+          imgV3.style("display", "block")
+          break;
+
+        default:
+          // do nothing
+      }
+
+      // change the class of the step divs to indicate which step is active
+      steps.classed('is-active', function (d, i) {
+        return i === response.index;
+      })
+
+    }
+
+    function init() {
+
+      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+      handleResize();
+
+      // 2. setup the scroller passing options
+      // 		this will also initialize trigger observations
+      // 3. bind scrollama event handlers (this can be chained like below)
+      myScrollama.setup({
+        step: '.step',
+        offset: Math.floor(window.innerHeight) * 0.95 + "px",
+        // set to true to see debug horizontal line
+        debug: true,
+      }).onStepEnter(handleStepChange)
+        
+
+      // setup resize event
+      window.addEventListener('resize', handleResize);
+    }
+
+    // kick things off
+    init();
+  </script>
+
+</body>
+
+</html>
