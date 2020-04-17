@@ -36,6 +36,10 @@ d3.select('.sqs-block')
   .style('width', "100%")
 
 
+// Set the content margin to 0 for full screen images on SquareSpace.
+d3.select('.sqs-row')
+  .style('padding', "0px")
+  .style('margin', "0px")
 
 
 
