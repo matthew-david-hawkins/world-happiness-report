@@ -4,18 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Scrollytelling Project</title>
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
   <!-- D3 -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
 
   <!-- CSS for Scrollytelling -->
-  <link rel="stylesheet" type="text/css" href="world_happiness.css">
+  <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/world_happiness.css">
 
 </head>
 
@@ -27,30 +21,17 @@
 
       <!-- Scrollytelling Intro -->
       <section id="intro">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-            </div>
-            <div class="col-8">
-              <p><br></p>
-              <h1 style="text-align:center">Where The World Is Becoming Happier</h1>
-              <h4 style="text-align:center">A Scrollytelling Project</h4>
-              <p><br></p>
-              <p>In 2012, the United Nations published their first <a href="https://worldhappiness.report/">The World Happiness Report</a>. Since then, updates to this report have analyzed data collected from 2005 to 2019 on happiness around the world.
-                This report highlights a continuing problem -- Some of the world's economic powerhouses, while increasing their Gross National Product (GNP), which is a measure of the dollar value of all the goods and services produced in a nation, show no significant increase in happiness.
-                For example, while the per-person GNP of the U.S. has increased three-fold over the previous half century, its inhabitants reported no significant change in happiness over that period. This massive increase in productivity, which continues to the present day, has come at a 
-                major cost to the environment, but without actually the people of the U.S. any happier.<br><br>A possible way out of this destructive trend comes from the small nation of Bhutan, where in 1972, the nation's king committed his government to increasing what he termed 
-                "Gross National Happiness."<br><br>The World Happiness report uses the Gallup World Poll, where respondents are asked to evaluate the quality of their lives on an ladder scale running
-                from 0 to 10, with the bottom rung of the ladder (0) being the worst possible life for them and 10 being the
-                best possible. <br><br>The story below highlights the nations where its people show significant changes in this self-evaluation of happiness.</p>
-                <p><br></p> 
-            </div>
-            <div class="col">
-            </div>
+          <div>
+            <p>In 2012, the United Nations published their first <a href="https://worldhappiness.report/">The World Happiness Report</a>. Since then, updates to this report have analyzed data collected from 2005 to 2019 on happiness around the world.
+              This report highlights a continuing problem -- Some of the world's economic powerhouses, while increasing their Gross National Product (GNP), which is a measure of the dollar value of all the goods and services produced in a nation, show no significant increase in happiness.
+              For example, while the per-person GNP of the U.S. has increased three-fold over the previous half century, its inhabitants reported no significant change in happiness over that period. This massive increase in productivity, which continues to the present day, has come at a 
+              major cost to the environment, but without actually the people of the U.S. any happier.<br><br>A possible way out of this destructive trend comes from the small nation of Bhutan, where in 1972, the nation's king committed his government to increasing what he termed 
+              "Gross National Happiness."<br><br>The World Happiness report uses the Gallup World Poll, where respondents are asked to evaluate the quality of their lives on an ladder scale running
+              from 0 to 10, with the bottom rung of the ladder (0) being the worst possible life for them and 10 being the
+              best possible. <br><br>The story below highlights the nations where its people show significant changes in this self-evaluation of happiness.</p>
+              <p><br></p> 
           </div>
-        </div>
  
-
       </section>
 
       <!-- Main Scrollytelling Section -->
@@ -62,14 +43,14 @@
           <!-- This div just helps to center the images -->
           <div style="text-align:center; height:100%; width:100%; overflow:hidden">
             <!-- Individual Images -->
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization1.svg" alt="Map1" width ="100%" id="imgV1" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization2.svg" alt="Map2" width ="100%" id="imgV2" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization3.svg" alt="Map3" width ="100%" id="imgV3" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization4.svg" alt="Map4" width ="100%" id="imgV4" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization5.svg" alt="Map5" width ="100%" id="imgV5" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization6.svg" alt="Map6" width ="100%" id="imgV6" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization7.svg" alt="Map7" width ="100%" id="imgV7" style="opacity:0">
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization8.svg" alt="Map8" width ="100%" id="imgV8" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization1.svg" alt="Map1" width ="100%" id="imgV1" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization2.svg" alt="Map2" width ="100%" id="imgV2" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization3.svg" alt="Map3" width ="100%" id="imgV3" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization4.svg" alt="Map4" width ="100%" id="imgV4" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization5.svg" alt="Map5" width ="100%" id="imgV5" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization6.svg" alt="Map6" width ="100%" id="imgV6" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization7.svg" alt="Map7" width ="100%" id="imgV7" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization8.svg" alt="Map8" width ="100%" id="imgV8" style="opacity:0">
           </div>
         </figure>
 
@@ -128,7 +109,7 @@
   <script src="https://unpkg.com/scrollama"></script>
 
   <!-- Scrollytelling JavaScript -->
-  <script src="world_happiness.js"></script>
+  <script type="text/javascript" src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/world_happiness.js"></script>
 
 </body>
 
