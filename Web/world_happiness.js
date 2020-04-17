@@ -21,6 +21,14 @@ d3.select('#innerWrapper')
 d3.select('#content')
   .style('padding', "0px !important")
 
+// Set the content margin to 0 for full screen images on SquareSpace.
+d3.select('.main-content-wrapper')
+  .style('margin', "0px")
+
+// Set the content margin to 0 for full screen images on SquareSpace.
+d3.select('.sqs-block')
+  .style('padding', "0px")
+
 
 var imgV1 = d3.select('#imgV1');
 var imgV2 = d3.select('#imgV2');
