@@ -42,9 +42,6 @@ d3.select('.sqs-row')
   .style('padding', "0px")
   .style('margin', "0px")
 
-
-
-
 var imgV1 = d3.select('#imgV1');
 var imgV2 = d3.select('#imgV2');
 var imgV3 = d3.select('#imgV3');
@@ -74,38 +71,38 @@ function handleResize() {
         .style('top', figureMarginTop + 'px');
     
     const imgMarginSide = (figure.node().getBoundingClientRect().width - imgV1.node().getBoundingClientRect().width) / 2
-    const imgMarginTop = (figure.node().getBoundingClientRect().height - imgV1.node().getBoundingClientRect().height) / 2
+    var imgMarginTop = (figure.node().getBoundingClientRect().height - imgV1.node().getBoundingClientRect().height) / 2
 
     imgV1
         .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV2
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV3
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV4
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV5
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV6
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV7
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
     imgV8
-        .style('left', imgMargin + 'px')
+        .style('left', imgMarginSide + 'px')
         .style('top', imgMarginTop + 'px')
 
 
