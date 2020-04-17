@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scrollytelling Project</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- CSS for Scrollytelling -->
+  <link rel="stylesheet" type="text/css" href="world_happiness.css">
+
+</head>
+
+<body>
+
+    
+    <!-- Scrollama Container -->
+    <main id="top">
+
+      <!-- Scrollytelling Intro -->
+      <section id="intro">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-8">
+              <p><br></p>
+              <h1 style="text-align:center">Where The World Is Becoming Happier</h1>
+              <h4 style="text-align:center">A Scrollytelling Project</h4>
+              <p><br></p>
+              <p>In 2012, the United Nations published their first <a href="https://worldhappiness.report/">The World Happiness Report</a>. Since then, updates to this report have analyzed data collected from 2005 to 2019 on happiness around the world.
+                This report highlights a continuing problem -- Some of the world's economic powerhouses, while increasing their Gross National Product (GNP), which is a measure of the dollar value of all the goods and services produced in a nation, show no significant increase in happiness.
+                For example, while the per-person GNP of the U.S. has increased three-fold over the previous half century, its inhabitants reported no significant change in happiness over that period. This massive increase in productivity, which continues to the present day, has come at a 
+                major cost to the environment, but without actually the people of the U.S. any happier.<br><br>A possible way out of this destructive trend comes from the small nation of Bhutan, where in 1972, the nation's king committed his government to increasing what he termed 
+                "Gross National Happiness."<br><br>The World Happiness report uses the Gallup World Poll, where respondents are asked to evaluate the quality of their lives on an ladder scale running
+                from 0 to 10, with the bottom rung of the ladder (0) being the worst possible life for them and 10 being the
+                best possible. <br><br>The story below highlights the nations where its people show significant changes in this self-evaluation of happiness.</p>
+                <p><br></p> 
+            </div>
+            <div class="col">
+            </div>
+          </div>
+        </div>
+ 
+
+      </section>
+
+      <!-- Main Scrollytelling Section -->
+      <section id="scrollytelling">
+
+        <!-- DJ Khaleed Major Key Cover. Figure sticks in place and updates as the user scrolls -->
+        <figure>
+
+          <!-- This div just helps to center the images -->
+          <div style="text-align:center; height:100%; width:100%; overflow:hidden">
+            <!-- Individual Images -->
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization1.svg" alt="Map1" width ="100%" id="imgV1" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization2.svg" alt="Map2" width ="100%" id="imgV2" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization3.svg" alt="Map3" width ="100%" id="imgV3" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization4.svg" alt="Map4" width ="100%" id="imgV4" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization5.svg" alt="Map5" width ="100%" id="imgV5" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization6.svg" alt="Map6" width ="100%" id="imgV6" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization7.svg" alt="Map7" width ="100%" id="imgV7" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/Vizualization8.svg" alt="Map8" width ="100%" id="imgV8" style="opacity:0">
+          </div>
+        </figure>
+
+        <!-- Prose about the album. Each div is a  point about the different versions of the figure -->
+        <article>
+
+          <!-- Message #1 -->
+          <div class="step" data-scrollama-index="0">
+            <p>Let's see which parts of the world are answering the call to make the pursuit of happiness the national mission.
+            <br><br>In darker blue countries, happiness is increasing quickly. Darker red countries have rapidly falling happiness.</p>
+          </div>
+          
+          <!-- Message #2 -->
+          <div class="step" data-scrollama-index="1">
+            <p>Africa seems to be home to some of the extremes.<br><br> The nations where happiness is increasing most quickly, and unfortunately several nations where happiness is losing the most ground, are located in Africa.</p>
+          </div>
+
+          <!-- Message #3 -->
+          <div class="step" data-scrollama-index="2">
+            <p>Generally speaking, West Africa and Southern Africa show a stark contrast in the direction national happiness is moving.</p>
+          </div>
+
+          <!-- Message #4 -->
+          <div class="step" data-scrollama-index="3">
+            <p>Rwanda, Tanzania, Malawi, Zambia, Zimbabwe, and Botswana show some of the most unfavorable trends in happiness among the world's nations.<br><br>These Southern African countries show between -1.8% and -2.9% change in happiness per year.</p>
+          </div>
+
+          <!-- Message #5 -->
+          <div class="step" data-scrollama-index="4">
+            <p>However, some West African countries are leading the world in improving happiness. Among this large block of 11 neighboring nations, all show a rapid rise in happiness.</p>
+          </div>
+
+          <!-- Message #6 -->
+          <div class="step" data-scrollama-index="5">
+            <p>Within this group of nations, Senegal, Burkina Faso, Congo (Brazzaville), Cameroon, Togo, and Benin show gains in happiness of more than 2% per year.</p>
+          </div>
+
+          <!-- Message #7 -->
+          <div class="step" data-scrollama-index="6">
+            <p>In particular, the nations Togo and Benin show the fastest increase in national happiness in the entire world, averaging 4.2% and 4.0% per year respectively.<br><br>According to the World Happiness Report, Benin was ranked second-to-last, or 155th, in the world in 2012. In 2020, Benin ranked ahead of China by 7 spots, at 86th.</p>
+          </div>
+
+        </article>
+
+      </section>
+
+      <section id="outro">
+        <p style="text-align : center"><br><a href="#top">Start Again</a><br></p>
+      </section>
+    
+    </main>
+
+    <p style="text-align : center"><br><a href="https://www.thrum.engineering/scrollytelling">Learn More About Scrollytelling</a><br></p>
+  <!-- Scrollama javaScript -->
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+
+  <!-- Scrollytelling JavaScript -->
+  <script src="world_happiness.js"></script>
+
+</body>
+
+</html>
