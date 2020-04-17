@@ -105,8 +105,7 @@ opacity: 0.95
 #intro div{
   /*For handling full screen images on squarespace*/
   max-width: 450px;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: auto;
 }
 
 #outro{
@@ -117,8 +116,7 @@ opacity: 0.95
 #outro div{
   /*For handling full screen images on squarespace*/
   max-width: 450px;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: auto;
 }
 
 
