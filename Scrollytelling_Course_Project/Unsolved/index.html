@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scrollytelling Project</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- CSS for Scrollytelling -->
+  <style>
+    /* smooth creates a rewind / speed up effect when jumping between sections of the page */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .main {
+      /* overflow-scrolling enables momentum-based scrolling on touch devices. This allows the user to use their fingers less on touch devices  */
+      -webkit-overflow-scrolling: touch;
+      /* 'transform' is included to ensure z-index works properly on all kinds of devices */
+      transform: translate3d(0, 0, 0); 
+    }
+
+    #scrollytelling {
+      /* 'position:relative' allows the scrollytelling section to be positioned in a custom way */
+      position: relative;
+      /* OPTIONAL: you can choose any background color */
+      background-color: white;
+      /* OPTIONAL: padding is used to create space between on the edges of the story*/
+      padding: 1rem;
+    }
+
+    article {
+      /* 'position:relative' allows the article section to be positioned in a custom way */
+      position: relative;
+      padding: 0 1rem;
+      /* 'max-width' sets how wide each step's the text comes up on the screen */
+      max-width: 20rem;
+      /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
+      margin-top: 0;
+      /* 'margin-left:auto' and 'margin-right:auto' centers the article on the page.*/
+      margin-left: auto;
+      margin-right: auto;
+      /* 'transform' is included to ensure z-index works properly on all kinds of devices */
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    figure {
+      /* 'sticky' is responsible for keeping the figure centered in the page as the user scrolls */
+      position: -webkit-sticky;
+      position: sticky;
+      /* 'left' is required for 'position:sticky' to function */
+      left: 0;
+      /* 'width:100%' and 'margin:0' forces the figure to take up the maximum space. This helps with image sizing and centering*/
+      width: 100%;
+      margin: 0;
+      /*OPTIONAL: Setting the min-height prevents the figure from becoming unreadable */
+      min-height: 480px;
+      /* 'transform' is included to ensure z-index works properly on all kinds of devices */
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      /* OPTIONAL: you can choose any background color */
+      background-color: white;
+    }
+
+    figure img {
+      /* position:absolute allows us to place the images on top of one another, which allows for smooth transitioning*/
+      position:absolute;
+      /* ease-out transition creates a smooth change for the image from completely see-through, to fully visible. */
+      -webkit-transition: opacity 0.3s ease-out;
+      -moz-transition: opacity 0.3s ease-out;
+      -o-transition: opacity 0.3s ease-out;
+      transition: opacity 0.3s ease-out;
+    }
+
+    .step {
+      /* 'position relative' allows the steps to positioned in a custom way*/
+      position: relative;
+      /* margins are set to position step as high as possible, centered, and with a minimum bottom margin*/
+      margin: 0 auto 2rem auto;
+    }
+
+    .step.last-child {
+      /* OPTIONAL: removes extra space at the bottom of the story*/
+      margin-bottom: 0;
+    }
+
+    .step p {
+      /* 'position relative' allows the steps to positioned in a custom way*/
+      position: relative;
+      /*OPTIONAL: centers the text*/
+      text-align: center;
+      /*OPTIONAL: creates space around the text*/
+      padding: 1rem;
+      /*OPTIONAL: can be set based on preferences*/
+      font-size: 1.5rem;
+      /*OPTIONAL: can be set based on preferences*/
+      background-color: #f3f3f3;
+      /*OPTIONAL: creates a solid box around the text*/
+      border: 2px solid #282828;
+      /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
+      opacity: 0.95
+    }
+
+  </style>
+</head>
+
+<body>
+
+    
+    <!-- Scrollama Container -->
+    <main id="top">
+
+      <!-- Scrollytelling Intro -->
+      <section id="intro">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-8">
+              <p><br></p>
+              <h1 style="text-align:center">Where The World Is Becoming Happier</h1>
+              <h4 style="text-align:center">A Scrollytelling Project</h4>
+              <p><br></p>
+              <p>In 2012, the United Nations published their first <a href="https://worldhappiness.report/">The World Happiness Report</a>. Since then, updates to this report have analyzed data collected from 2005 to 2019 on happiness around the world.
+                This report highlights a continuing problem -- Some of the world's economic powerhouses, while increasing their Gross National Product (GNP), which is a measure of the dollar value of all the goods and services produced in a nation, show no significant increase in happiness.
+                For example, while the per-person GNP of the U.S. has increased three-fold over the previous half century, its inhabitants reported no significant change in happiness over that period. This massive increase in productivity, which continues to the present day, has come at a 
+                major cost to the environment, but without actually the people of the U.S. any happier.<br><br>A possible way out of this destructive trend comes from the small nation of Bhutan, where in 1972, the nation's king committed his government to increasing what he termed 
+                "Gross National Happiness."<br><br>The World Happiness report uses the Gallup World Poll, where respondents are asked to evaluate the quality of their lives on an ladder scale running
+                from 0 to 10, with the bottom rung of the ladder (0) being the worst possible life for them and 10 being the
+                best possible. <br><br>The story below highlights the nations where its people show significant changes in this self-evaluation of happiness.</p>
+                <p><br></p> 
+            </div>
+            <div class="col">
+            </div>
+          </div>
+        </div>
+ 
+
+      </section>
+
+      <!-- Main Scrollytelling Section -->
+      <section id="scrollytelling">
+
+        <figure>
+
+          <!-- This div just helps to center the images -->
+          <div style="text-align:center; height:100%; width:100%; overflow:hidden">
+            <!-- Individual Images -->
+            <img src="Vizualization1.svg" alt="Map1" width ="100%" id="imgV1" style="opacity:0">
+            <img src="Vizualization2.svg" alt="Map2" width ="100%" id="imgV2" style="opacity:0">
+            <img src="Vizualization3.svg" alt="Map3" width ="100%" id="imgV3" style="opacity:0">
+            <img src="Vizualization4.svg" alt="Map1" width ="100%" id="imgV4" style="opacity:0">
+            <img src="Vizualization5.svg" alt="Map1" width ="100%" id="imgV5" style="opacity:0">
+            <img src="Vizualization6.svg" alt="Map1" width ="100%" id="imgV6" style="opacity:0">
+            <img src="Vizualization7.svg" alt="Map1" width ="100%" id="imgV7" style="opacity:0">
+            <img src="Vizualization8.svg" alt="Map1" width ="100%" id="imgV8" style="opacity:0">
+          </div>
+        </figure>
+
+        <!-- Prose about the album. Each div is a  point about the different versions of the figure -->
+        <article>
+
+          <!-- Message #1 -->
+          <div class="step" data-scrollama-index="0">
+            <p>#1</p>
+          </div>
+          
+          <!-- Message #2 -->
+          <div class="step" data-scrollama-index="1">
+            <p>#2</p>
+          </div>
+
+          <!-- Message #3 -->
+          <div class="step" data-scrollama-index="2">
+            <p>#3</p>
+          </div>
+
+          <!-- Message #4 -->
+          <div class="step" data-scrollama-index="3">
+            <p>#4</p>
+          </div>
+
+          <!-- Message #5 -->
+          <div class="step" data-scrollama-index="4">
+            <p>#5</p>
+          </div>
+
+          <!-- Message #6 -->
+          <div class="step" data-scrollama-index="5">
+            <p>#6</p>
+          </div>
+
+          <!-- Message #7 -->
+          <div class="step" data-scrollama-index="6">
+            <p>#7</p>
+          </div>
+
+        </article>
+
+      </section>
+
+      <section id="outro">
+        <p style="text-align : center"><br><a href="#top">Start Again</a><br></p>
+      </section>
+    
+    </main>
+
+    <p style="text-align : center"><br><a href="https://www.thrum.engineering/scrollytelling">Learn More About Scrollytelling</a><br></p>
+  <!-- Scrollama javaScript -->
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+
+  <!-- Scrollytelling JavaScript -->
+  <script>
+
+    // Save different parts of the page as D3.js objects. Using d3 for convenience
+    var main = d3.select('main')
+    var scrollySection = main.select('#scrollytelling');
+    var figure = scrollySection.select('figure');
+    var article = scrollySection.select('article');
+    var steps = scrollySection.selectAll('.step');
+
+    var imgV1 = d3.select('#imgV1');
+    var imgV2 = d3.select('#imgV2');
+    var imgV3 = d3.select('#imgV3');
+    var imgV4 = d3.select('#imgV4');
+    var imgV5 = d3.select('#imgV5');
+    var imgV6 = d3.select('#imgV6');
+    var imgV7 = d3.select('#imgV7');
+    var imgV8 = d3.select('#imgV8');
+
+    // Create a scrollama object.
+    var myScrollama = scrollama();
+
+    // @TODO: Set the stepH, figureHeight, and figureMarginTop constants
+
+    // generic window resize listener event
+    function handleResize() {
+      
+      console.log("handling resize")
+
+      // @TODO: Use `d3.json` to update height of step elements
+
+      // @TODO: Update the height, and top figure elements
+
+      // Tell scrollama to update new element dimensions
+      myScrollama.resize();
+
+    }
+
+    // scrollama event handler
+    function handleStepChange(response) {
+      
+      switch(response.index) {
+        case 0:
+          // Set image to first version
+          imgV1.style("opacity", "1")
+          imgV2.style("opacity", "0")
+          imgV3.style("opacity", "0")
+          imgV4.style("opacity", "0")
+          imgV5.style("opacity", "0")
+          imgV6.style("opacity", "0")
+          imgV7.style("opacity", "0")
+          imgV8.style("opacity", "0")
+          break;
+
+        case 1:
+          // @TODO: Set image to 2nd version
+          break;
+
+        case 2:
+          // @TODO: Set image to 3rd version
+          break;
+
+        case 3:
+          // @TODO: Set image to 4th version
+          break;
+
+        case 4:
+          // @TODO: Set image to 5th version
+          break;
+
+        case 5:
+          // @TODO: Set image to 6th version
+          break;
+
+        case 6:
+        // @TODO: Set image to 7th version
+        break;
+
+        case 7:
+        // @TODO: Set image to 8th version
+        break;
+
+        default:
+          // do nothing
+      }
+
+      // change the class of the step divs to indicate which step is active
+      steps.classed('is-active', function (d, i) {
+        return i === response.index;
+      })
+
+    }
+
+    function init() {
+
+      // 0. Display first image only once the all sizes are detected
+      imgV1.style("opacity", "1")
+
+      handleResize();
+
+      // @TODO: Create the myScrollama.setup() function
+        
+      // setup resize event
+      window.addEventListener('resize', handleResize);
+    }
+
+    // kick things off
+    init();
+  </script>
+
+</body>
+
+</html>
