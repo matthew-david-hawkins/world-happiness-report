@@ -91,3 +91,8 @@ border: 2px solid #282828;
 /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
 opacity: 0.95
 }
+
+#content {
+  /* For making full screen images on squarespace*/
+  padding: 0px !important
+  }
