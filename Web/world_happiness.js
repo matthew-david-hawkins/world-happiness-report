@@ -15,20 +15,29 @@ d3.select('#outerWrapper')
 d3.select('#innerWrapper')
   .style('width', "100%")
   .style('margin', "0px")
+  .style('padding', "0px")
 
 // Set the content padding to 0 for full screen images on SquareSpace.
 d3.select('#content')
   .style('padding', "0px !important")
+  .style('width', "100%")
+  .style('margin', "0px")
 
 // Set the content margin to 0 for full screen images on SquareSpace.
 d3.select('.main-content-wrapper')
   .style('margin', "0px")
   .style('padding', "0px")
+  .style('width', "100%")
 
 // Set the content margin to 0 for full screen images on SquareSpace.
 d3.select('.sqs-block')
   .style('padding', "0px")
   .style('margin', "0px")
+  .style('width', "100%")
+
+
+
+
 
 
 var imgV1 = d3.select('#imgV1');
