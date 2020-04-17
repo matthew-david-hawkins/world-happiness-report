@@ -93,6 +93,32 @@ opacity: 0.95
 }
 
 #content {
-  /* For making full screen images on squarespace*/
+  /*For making full screen images on squarespace*/
   padding: 0px !important
-  }
+}
+
+#intro {
+  /*For handling full screen images on squarespace*/
+  padding: 1rem;
+}
+
+#intro div{
+  /*For handling full screen images on squarespace*/
+  max-width: 450px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#outro{
+  /*For handling full screen images on squarespace*/
+  padding: 1rem;
+}
+
+#outro div{
+  /*For handling full screen images on squarespace*/
+  max-width: 450px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+
