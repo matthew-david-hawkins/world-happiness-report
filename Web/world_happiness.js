@@ -32,8 +32,15 @@ function handleResize() {
     steps.style('height', stepH + 'px');
 
     figure
-    .style('height', figureHeight + 'px')
-    .style('top', figureMarginTop + 'px');
+        .style('height', figureHeight + 'px')
+        .style('top', figureMarginTop + 'px');
+    
+    // 3. Calculate the necessary whitespace around the images
+    imgMargin = (figure.node().getBoundingClientRect().width - imgV1.node().getBoundingClientRect().width) / 2
+
+    imgV1.style('left', imgMargin + 'px')
+    imgV2.style('left', imgMargin + 'px')
+    imgV3.style('left', imgMargin + 'px')
 
 
     // 3. tell scrollama to update new element dimensions
