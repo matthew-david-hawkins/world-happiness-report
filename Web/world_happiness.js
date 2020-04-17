@@ -14,13 +14,12 @@ d3.select('#outerWrapper')
 // Set the innerWrapper width to 100% and margin to 0 for full screen images on SquareSpace.
 d3.select('#innerWrapper')
   .style('width', "100%")
-  .style('margin', "0 px")
+  .style('margin', "0px")
 
 
 // Set the content padding to 0 for full screen images on SquareSpace.
 d3.select('#content')
-  .style('padding', "0 px")
-
+  .style('padding', "0px !important")
 
 
 var imgV1 = d3.select('#imgV1');
