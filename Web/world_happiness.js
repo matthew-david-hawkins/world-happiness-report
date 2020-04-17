@@ -51,6 +51,9 @@ var imgV6 = d3.select('#imgV6');
 var imgV7 = d3.select('#imgV7');
 var imgV8 = d3.select('#imgV8');
 
+// Set the aspect ratio of the images. width / height
+aspect = 2.03889
+
 // Create a scrollama object.
 var myScrollama = scrollama();
 
@@ -71,7 +74,7 @@ function handleResize() {
         .style('top', figureMarginTop + 'px');
     
     const imgMarginSide = (figure.node().getBoundingClientRect().width - imgV1.node().getBoundingClientRect().width) / 2
-    var imgMarginTop = (figure.node().getBoundingClientRect().height - imgV1.node().getBoundingClientRect().height) / 2
+    var imgMarginTop = (figure.node().getBoundingClientRect().height - figure.node().getBoundingClientRect().width / aspect) / 2
 
     imgV1
         .style('left', imgMarginSide + 'px')
