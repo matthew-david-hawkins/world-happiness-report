@@ -72,17 +72,45 @@ function handleResize() {
         .style('height', figureHeight + 'px')
         .style('top', figureMarginTop + 'px');
     
-    // 3. Calculate the necessary whitespace around the images
-    imgMargin = (figure.node().getBoundingClientRect().width - imgV1.node().getBoundingClientRect().width) / 2
+    const imgMarginSide = (figure.node().getBoundingClientRect().width - imgV1.node().getBoundingClientRect().width) / 2
+    const imgMarginTop = (figure.node().getBoundingClientRect().height - imgV1.node().getBoundingClientRect().height) / 2
 
-    imgV1.style('left', imgMargin + 'px')
-    imgV2.style('left', imgMargin + 'px')
-    imgV3.style('left', imgMargin + 'px')
-    imgV4.style('left', imgMargin + 'px')
-    imgV5.style('left', imgMargin + 'px')
-    imgV6.style('left', imgMargin + 'px')
-    imgV7.style('left', imgMargin + 'px')
-    imgV8.style('left', imgMargin + 'px')
+    imgV1
+        .style('left', imgMarginSide + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV2
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV3
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV4
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV5
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV6
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV7
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+    imgV8
+        .style('left', imgMargin + 'px')
+        .style('top', imgMarginTop + 'px')
+
+
+    // override media query for content padding to 0 for full screen images on SquareSpace.
+    d3.select('#content')
+        .style('padding', "0px !important")
 
 
     // 3. tell scrollama to update new element dimensions
