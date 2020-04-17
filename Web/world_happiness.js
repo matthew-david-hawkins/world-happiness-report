@@ -22,6 +22,7 @@ d3.select('#content')
   .style('padding', "0px !important")
   .style('width', "100%")
   .style('margin', "0px")
+  .attr("id", "content-thrum")
 
 // Set the content margin to 0 for full screen images on SquareSpace.
 d3.select('.main-content-wrapper')
@@ -106,11 +107,6 @@ function handleResize() {
     imgV8
         .style('left', imgMargin + 'px')
         .style('top', imgMarginTop + 'px')
-
-
-    // override media query for content padding to 0 for full screen images on SquareSpace.
-    d3.select('#content')
-        .style('padding', "0px !important")
 
 
     // 3. tell scrollama to update new element dimensions
