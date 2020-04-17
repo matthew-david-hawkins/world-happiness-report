@@ -15,8 +15,6 @@ transform: translate3d(0, 0, 0);
 position: relative;
 /* OPTIONAL: you can choose any background color */
 background-color: white;
-/* OPTIONAL: padding is used to create space between on the edges of the story*/
-padding: 1rem;
 }
 
 article {

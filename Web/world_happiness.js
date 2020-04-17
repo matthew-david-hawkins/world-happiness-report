@@ -7,6 +7,22 @@ var figure = scrollySection.select('figure');
 var article = scrollySection.select('article');
 var steps = scrollySection.selectAll('.step');
 
+// Remove the overflow:hidden css property on the div with id="outerWrapper" on squarespace. This prevents position:sticky from working on Squarespace
+d3.select('#outerWrapper')
+  .style('overflow', "visible")
+
+// Set the innerWrapper width to 100% and margin to 0 for full screen images on SquareSpace.
+d3.select('#innerWrapper')
+  .style('width', "100%")
+  .style('margin', "0 px")
+
+
+// Set the content padding to 0 for full screen images on SquareSpace.
+d3.select('#content')
+  .style('padding', "0 px")
+
+
+
 var imgV1 = d3.select('#imgV1');
 var imgV2 = d3.select('#imgV2');
 var imgV3 = d3.select('#imgV3');
@@ -41,6 +57,11 @@ function handleResize() {
     imgV1.style('left', imgMargin + 'px')
     imgV2.style('left', imgMargin + 'px')
     imgV3.style('left', imgMargin + 'px')
+    imgV4.style('left', imgMargin + 'px')
+    imgV5.style('left', imgMargin + 'px')
+    imgV6.style('left', imgMargin + 'px')
+    imgV7.style('left', imgMargin + 'px')
+    imgV8.style('left', imgMargin + 'px')
 
 
     // 3. tell scrollama to update new element dimensions
