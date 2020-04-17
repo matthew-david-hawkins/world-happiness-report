@@ -62,6 +62,7 @@ const stepH = Math.floor(window.innerHeight * 2.5);
 const figureHeight = window.innerHeight * 1.0
 const figureMarginTop = (window.innerHeight - figureHeight) / 2
 
+
 // generic window resize listener event
 function handleResize() {
     
@@ -71,43 +72,19 @@ function handleResize() {
 
     figure
         .style('height', figureHeight + 'px')
-        .style('top', figureMarginTop + 'px');
+        .style('top', '0px');
     
-    const imgMarginSide = (figure.node().getBoundingClientRect().width - imgV1.node().getBoundingClientRect().width) / 2
-    var imgMarginTop = (figure.node().getBoundingClientRect().height - figure.node().getBoundingClientRect().width / aspect) / 2
+    var innerWidth = document.body.clientWidth
+    var imgMarginTop = (figureHeight - innerWidth / aspect) / 2
 
-    imgV1
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV2
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV3
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV4
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV5
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV6
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV7
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
-    imgV8
-        .style('left', imgMarginSide + 'px')
-        .style('top', imgMarginTop + 'px')
-
+    imgV1.style('top', imgMarginTop + 'px')
+    imgV2.style('top', imgMarginTop + 'px')
+    imgV3.style('top', imgMarginTop + 'px')
+    imgV4.style('top', imgMarginTop + 'px')
+    imgV5.style('top', imgMarginTop + 'px')
+    imgV6.style('top', imgMarginTop + 'px')
+    imgV7.style('top', imgMarginTop + 'px')
+    imgV8.style('top', imgMarginTop + 'px')
 
     // 3. tell scrollama to update new element dimensions
     myScrollama.resize();

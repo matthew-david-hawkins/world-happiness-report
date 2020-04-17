@@ -56,11 +56,12 @@ background-color: white;
 figure img {
 /* position:absolute allows us to place the images on top of one another, which allows for smooth transitioning*/
 position:absolute;
+left: 0px;
 /* ease-out transition creates a smooth change for the image from completely see-through, to fully visible. */
--webkit-transition: opacity 0.3s ease-out;
--moz-transition: opacity 0.3s ease-out;
--o-transition: opacity 0.3s ease-out;
-transition: opacity 0.3s ease-out;
+-webkit-transition: opacity 0.3s linear;
+-moz-transition: opacity 0.3s linear;
+-o-transition: opacity 0.3s linear;
+transition: opacity 0.3s linear;
 }
 
 .step {
