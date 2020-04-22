@@ -37,10 +37,10 @@
       padding: 1rem;
     }
 
+
     article {
       /* 'position:relative' allows the article section to be positioned in a custom way */
       position: relative;
-      padding: 0 1rem;
       /* 'max-width' sets how wide each step's the text comes up on the screen */
       max-width: 20rem;
       /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
@@ -76,6 +76,7 @@
     figure img {
       /* position:absolute allows us to place the images on top of one another, which allows for smooth transitioning*/
       position:absolute;
+      left: 0px;
       /* ease-out transition creates a smooth change for the image from completely see-through, to fully visible. */
       -webkit-transition: opacity 0.3s ease-out;
       -moz-transition: opacity 0.3s ease-out;

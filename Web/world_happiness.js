@@ -1,3 +1,114 @@
+// Leaflet JavaScript
+
+var queryUrl = "https://s3.us-east-2.amazonaws.com/thrum.engineering.com/countries_happiness.geojson";
+
+// Turn happiness into a color
+function getColor(d) {
+  return d < -4 ? '#aa0000' : // darkest red
+         d < -2  ? '#b93d3d' : // second darkest red
+         d < -1  ? '#c88686' : // light red
+         d <  1  ? '#d9d9d9' : // grey
+         d <  2   ? '#78add3' : // light blue
+         d <  4   ? '#5082af' : // Darker blue
+                    '#2b5c8a' ; // dark blue
+}
+
+// Add happiness leaflet layer
+function style(feature) {
+  return {
+      fillColor: getColor(feature.properties.happiness),
+      weight: 1, // line thickness
+      opacity: 1, // border opacity
+      color: 'black', // line color
+      fillOpacity: 0.9 //
+  };
+}
+
+
+// Get the country boundaries Geojson from S3
+d3.json(queryUrl).then(function(countryData){
+  
+  // Set up initial map
+  var API_KEY = "pk.eyJ1IjoibWdoYW50aSIsImEiOiJjazJwZGV3ZXkwMzR1M2N1aWZ1eWl3ZHptIn0.3OIgX5x7eRxF79LXza4rsg";
+  var myMap = L.map('map').setView([37.8, -96], 4);
+
+  // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  //     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+  //     maxZoom: 18,
+  //     id: 'mapbox/light-v1',
+  //     tileSize: 512,
+  //     zoomOffset: -1,
+  //     accessToken: API_KEY
+  // }).addTo(myMap);
+
+  // Add info overlay
+  var info = L.control();
+
+  info.onAdd = function (myMap) {
+      this._div = L.DomUtil.create('div', 'leaflet-info'); // create a div with a class "info"
+      this.update();
+      return this._div;
+  };
+
+  // method that we will use to update the control based on feature properties passed
+  info.update = function (props) {
+      this._div.innerHTML = '<h4>Percent Change in Happiness</h4>' +  (props ?
+          '<b>' + props.ADMIN + '</b><br />' + props.happiness.toFixed(1) + ' people / mi<sup>2</sup>'
+          : 'Hover over a state');
+  };
+
+  info.addTo(myMap);
+
+  var geojson;
+
+  // Define highlight mouseout properties
+  function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+  }
+
+  // Define what happens to a highlighted country
+  function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+
+    info.update(layer.feature.properties);
+  }
+
+  // Zoom in a country
+  function zoomToFeature(e) {
+    myMap.fitBounds(e.target.getBounds());
+  }
+
+  // Attach event listeners
+  function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+  }
+
+  geojson = L.geoJson(countryData.features, {
+    style: style,
+    onEachFeature: onEachFeature
+  }).addTo(myMap);
+
+
+
+});
+
+
 // Scrollytelling JavaScript
 
 // Save different parts of the page as D3.js objects. Using d3 for convenience

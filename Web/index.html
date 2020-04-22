@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <div id="map", style="height: 1000px; width:100%"></div>
 
     
     <!-- Scrollama Container -->
@@ -35,6 +36,10 @@
  
       </section>
 
+      <!-- Non-Scrolly Visualization Section -->
+      <section>
+      </section>
+
       <!-- Main Scrollytelling Section -->
       <section id="scrollytelling">
 
@@ -44,7 +49,7 @@
           <!-- This div just helps to center the images -->
           <div style="text-align:center; height:100%; width:100%; overflow:hidden">
             <!-- Individual Images -->
-            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization1.svg" alt="Map1" width ="100%" id="imgV1" style="opacity:0">
+            <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization1.svg" alt="Map1" width ="100%" id="imgV1" style="opacity:0;">
             <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization2.svg" alt="Map2" width ="100%" id="imgV2" style="opacity:0">
             <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization3.svg" alt="Map3" width ="100%" id="imgV3" style="opacity:0">
             <img src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Scrollytelling_Course_Project/Solved/Vizualization4.svg" alt="Map4" width ="100%" id="imgV4" style="opacity:0">
@@ -112,8 +117,17 @@
   <script src="https://unpkg.com/intersection-observer"></script>
   <script src="https://unpkg.com/scrollama"></script>
 
+  <!-- Leaflet JavaScript -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
   <!-- Scrollytelling JavaScript -->
-  <script type="text/javascript" src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/world_happiness.js"></script>
+  <!-- <script type="text/javascript" src="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/world_happiness.js"></script> -->
+  <script type="text/javascript" src="world_happiness.js"></script>
 
 </body>
 

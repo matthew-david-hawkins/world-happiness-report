@@ -1,3 +1,5 @@
+/* Scrollytelling CSS */
+
 /* smooth creates a rewind / speed up effect when jumping between sections of the page */
 html {
     scroll-behavior: smooth;
@@ -120,4 +122,19 @@ opacity: 0.95
   margin: auto;
 }
 
+/* Leaflet-related CSS */
+.leaflet-container {
+  background-color:rgba(255,0,0,0.0)
+}
 
+.leaflet-info {
+  padding: 6px 8px;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.leaflet-info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
