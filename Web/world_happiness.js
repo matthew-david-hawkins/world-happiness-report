@@ -70,7 +70,7 @@ d3.json(queryUrl).then(function(countryData){
   info.update = function (props) {
       if (props){
         if (props.happiness < 998){
-          tag = '<h1 style="color:' + getColor2(props.happiness) + '"><b><u>' + props.ADMIN + '</u></b><h1><h3 style="color:' + getColor2(props.happiness) + '">' + (props.happiness.toFixed(1) + '% / year</h3>');
+          tag = '<h1 style="color:' + getColor2(props.happiness) + '"><b><u>' + props.ADMIN + '</u></b><h1><h3 style="color:' + getColor2(props.happiness) + '"><strong>' + (props.happiness.toFixed(1) + '% / year</strong></h3>');
         }
         else {
           tag = '<h1><b><u>' + props.ADMIN + '</u></b><h1><h3>UNKNOWN</h3>';
