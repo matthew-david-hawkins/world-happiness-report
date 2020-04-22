@@ -344,18 +344,6 @@ function handleStepChange(response) {
         imgV8.style("opacity", "1")
         break;
 
-        case 8:
-        // Set image to 6th version
-        imgV1.style("opacity", "0")
-        imgV2.style("opacity", "0")
-        imgV3.style("opacity", "0")
-        imgV4.style("opacity", "0")
-        imgV5.style("opacity", "0")
-        imgV6.style("opacity", "0")
-        imgV7.style("opacity", "0")
-        imgV8.style("opacity", "1")
-        step9.style("opacity", "1")
-        break;
 
     default:
         // do nothing
