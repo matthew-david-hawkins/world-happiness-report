@@ -1,9 +1,9 @@
 /* Scrollytelling CSS */
 
 /* smooth creates a rewind / speed up effect when jumping between sections of the page */
-html {
+/* html {
     scroll-behavior: smooth;
-  }
+  } */
 
 .main {
 /* overflow-scrolling enables momentum-based scrolling on touch devices. This allows the user to use their fingers less on touch devices  */
