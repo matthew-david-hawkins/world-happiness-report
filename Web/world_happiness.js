@@ -4,23 +4,31 @@ var queryUrl = "https://s3.us-east-2.amazonaws.com/thrum.engineering.com/countri
 
 // Turn happiness into a color
 function getColor(d) {
-  return d < -4 ? '#aa0000' : // darkest red
-         d < -2  ? '#b93d3d' : // second darkest red
-         d < -1  ? '#c88686' : // light red
-         d <  1  ? '#d9d9d9' : // grey
-         d <  2   ? '#78add3' : // light blue
-         d <  4   ? '#5082af' : // Darker blue
-                    '#2b5c8a' ; // dark blue
+  return d < -2.68321 ? '#aa0000' : // darkest red
+         d < -1.60993  ? '#b93d3d' : // second darkest red
+         d < -0.53665  ? '#c88686' : // light red
+         d <  0.53664  ? '#d9d9d9' : // grey
+         d <  1.60993   ? '#78add3' : // light blue
+         d <  2.683212   ? '#5082af' : // Darker blue
+         d < 900 ?  '#2b5c8a' : // dark blue
+                    '#d9d9d9'; //grey
+        
+}
+
+// Turn happiness into a color
+function getColor2(d) {
+  return d < 0  ? '#aa0000' : // darkest red
+                  '#2b5c8a' ; // dark blue
 }
 
 // Add happiness leaflet layer
 function style(feature) {
   return {
-      fillColor: getColor(feature.properties.happiness),
       weight: 1, // line thickness
       opacity: 1, // border opacity
       color: 'black', // line color
-      fillOpacity: 0.9 //
+      fillOpacity: 0.8, //
+      fillColor: getColor(feature.properties.happiness)
   };
 }
 
@@ -30,16 +38,24 @@ d3.json(queryUrl).then(function(countryData){
   
   // Set up initial map
   var API_KEY = "pk.eyJ1IjoibWdoYW50aSIsImEiOiJjazJwZGV3ZXkwMzR1M2N1aWZ1eWl3ZHptIn0.3OIgX5x7eRxF79LXza4rsg";
-  var myMap = L.map('map').setView([37.8, -96], 4);
+  // var myMap = L.map('map').setView([37.8, -96], 4);
 
-  // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-  //     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  //     maxZoom: 18,
-  //     id: 'mapbox/light-v1',
-  //     tileSize: 512,
-  //     zoomOffset: -1,
-  //     accessToken: API_KEY
-  // }).addTo(myMap);
+  var myMap = L.map("map", {
+		center: [0, 0],
+		zoom: 2,
+    scrollWheelZoom: false
+  });
+
+  myMap.doubleClickZoom.disable(); 
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+      maxZoom: 18,
+      id: 'mapbox/light-v9',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: API_KEY
+  }).addTo(myMap);
 
   // Add info overlay
   var info = L.control();
@@ -52,9 +68,19 @@ d3.json(queryUrl).then(function(countryData){
 
   // method that we will use to update the control based on feature properties passed
   info.update = function (props) {
-      this._div.innerHTML = '<h4>Percent Change in Happiness</h4>' +  (props ?
-          '<b>' + props.ADMIN + '</b><br />' + props.happiness.toFixed(1) + ' people / mi<sup>2</sup>'
-          : 'Hover over a state');
+      if (props){
+        if (props.happiness < 998){
+          tag = '<h1 style="color:' + getColor2(props.happiness) + '"><b><u>' + props.ADMIN + '</u></b><h1><h3 style="color:' + getColor2(props.happiness) + '">' + (props.happiness.toFixed(1) + '% / year</h3>');
+        }
+        else {
+          tag = '<h1><b><u>' + props.ADMIN + '</u></b><h1><h3>UNKNOWN</h3>';
+        }
+      }
+      else {
+        tag = 'Hover over a nation'
+      }
+
+      this._div.innerHTML = '<h3>Change in Happiness</h3>' + tag;
   };
 
   info.addTo(myMap);
@@ -75,7 +101,6 @@ d3.json(queryUrl).then(function(countryData){
         weight: 5,
         color: '#666',
         dashArray: '',
-        fillOpacity: 0.7
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -104,7 +129,15 @@ d3.json(queryUrl).then(function(countryData){
     onEachFeature: onEachFeature
   }).addTo(myMap);
 
+  document.getElementById('fit').addEventListener('click', function() {
+    myMap.setView([0, 0], 2);
+    //myMap.flyToBounds([[-67.5,-130],   [67.5, 130]]);
+    });
 
+  document.getElementById('map').addEventListener('dblclick', function() {
+    myMap.setView([0, 0], 2);
+    //myMap.flyToBounds([[-67.5,-130],   [67.5, 130]]);
+    });
 
 });
 
@@ -117,6 +150,11 @@ var scrollySection = main.select('#scrollytelling');
 var figure = scrollySection.select('figure');
 var article = scrollySection.select('article');
 var steps = scrollySection.selectAll('.step');
+
+var map = d3.select('#map');
+var fit = d3.select('#fit');
+
+
 
 // Remove the overflow:hidden css property on the div with id="outerWrapper" on squarespace. This prevents position:sticky from working on Squarespace
 d3.select('#outerWrapper')
@@ -161,6 +199,8 @@ var imgV5 = d3.select('#imgV5');
 var imgV6 = d3.select('#imgV6');
 var imgV7 = d3.select('#imgV7');
 var imgV8 = d3.select('#imgV8');
+var step9 = d3.select('#step9');
+
 
 // Set the aspect ratio of the images. width / height
 aspect = 2.03889
@@ -196,6 +236,10 @@ function handleResize() {
     imgV6.style('top', imgMarginTop + 'px')
     imgV7.style('top', imgMarginTop + 'px')
     imgV8.style('top', imgMarginTop + 'px')
+
+    map.style('height', figureHeight + 'px')
+    fit.style('top', -figureHeight+ 'px')
+
 
     // 3. tell scrollama to update new element dimensions
     myScrollama.resize();
@@ -298,6 +342,19 @@ function handleStepChange(response) {
         imgV6.style("opacity", "0")
         imgV7.style("opacity", "1")
         imgV8.style("opacity", "1")
+        break;
+
+        case 8:
+        // Set image to 6th version
+        imgV1.style("opacity", "0")
+        imgV2.style("opacity", "0")
+        imgV3.style("opacity", "0")
+        imgV4.style("opacity", "0")
+        imgV5.style("opacity", "0")
+        imgV6.style("opacity", "0")
+        imgV7.style("opacity", "0")
+        imgV8.style("opacity", "1")
+        step9.style("opacity", "1")
         break;
 
     default:

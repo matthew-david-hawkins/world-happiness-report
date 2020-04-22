@@ -123,18 +123,36 @@ opacity: 0.95
 }
 
 /* Leaflet-related CSS */
-.leaflet-container {
-  background-color:rgba(255,0,0,0.0)
+#map {
+  background:rgba(255,0,0,0.0);
+  border: #282828;
+  border-top-style: solid;
+  border-bottom-style: solid;
 }
 
 .leaflet-info {
   padding: 6px 8px;
   background: white;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
 }
-.leaflet-info h4 {
+
+.leaflet-info h1 {
   margin: 0 0 5px;
-  color: #777;
+  color: black;
 }
+
+#fit {
+  display: block;
+  position: relative;
+  margin: 0px auto;
+  width: 25%;
+  padding: 6px 8px;
+  font-size: 12px;
+  text-align: center;
+  background: white;
+  background: rgba(255,255,255,0.9);
+  border-radius: 5px;
+  z-index: 999;
+  }

@@ -9,14 +9,12 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
 
   <!-- CSS for Scrollytelling -->
-  <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/world_happiness.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/thrum.engineering.com/World_Happiness/Web/world_happiness.css"> -->
+  <link rel="stylesheet" type="text/css" href="world_happiness.css">
 
 </head>
 
 <body>
-  <div id="map", style="height: 1000px; width:100%"></div>
-
-    
     <!-- Scrollama Container -->
     <main id="top">
 
@@ -24,20 +22,13 @@
       <section id="intro">
           <div>
             <h1 style="text-align : center">Where the World is Becoming Happier</h1>
-            <p>In 2012, the United Nations published their first <a href="https://worldhappiness.report/">World Happiness Report</a>. Since then, updates to this report have analyzed data collected from 2005 to 2019 on happiness around the world.
-              This report highlights a continuing problem -- Some of the world's economic powerhouses, while increasing their Gross National Product (GNP), which is a measure of the dollar value of all the goods and services produced in a nation, show no significant increase in happiness.
-              For example, while the per-person GNP of the U.S. has increased three-fold over the previous half century, its inhabitants reported no significant change in happiness over that period.<br><br>This massive increase in productivity, which continues to the present day, has come at a 
-              major cost to the environment, and without making the people of the U.S. any happier on average.<br><br>A possible way out of this destructive trend comes from the small nation of Bhutan, where in 1972, the nation's king committed his government to increasing what he termed 
-              "Gross National Happiness."<br><br>The World Happiness report uses the Gallup World Poll, where respondents are asked to evaluate the quality of their lives on an ladder scale running
-              from 0 to 10, with the bottom rung of the ladder (0) being the worst possible life for them and 10 being the
-              best possible. <br><br>The story below highlights the nations where its people show significant changes in this self-evaluation of happiness.</p>
-              <p><br></p> 
+            <p>In 2012 the United Nations published their first <a href="https://worldhappiness.report/">World Happiness Report</a>. Since then, updates to this report have analyzed data collected from 2005 to 2019 on happiness around the world.
+              This report highlights a continuing problem -- some of the world's economic powerhouses, while greatly increasing their Gross National Product (a measure of the dollar value of all the goods and services produced in a nation) show no significant increase in happiness on average.
+              For example, while the per-person Gross National Product of the U.S. increased three-fold between 1960 and 2010, its inhabitants reported no significant change in happiness over that period.<br><br>Whatever benefits this massive increase in productivity may have brought, happier people has not been one of them. 
+              Meanwhile, the costs of running these economic engines pile up in the form of climate change, pollution, dwindling natural resources, and economic inequality.
+              <br><br>The writers of the World Happiness Report point out a possible way out of this destructive trend. It's an idea that comes from the small nation of Bhutan, where, in 1972, the nation's king committed his government to increasing what he termed 
+              "Gross National Happiness." The World Happiness Report aims to make it possible for goverments as well as individuals to make informed decisions about how to create happy societies.<br><br>But, to achieve that goal, we have to use this data.
           </div>
- 
-      </section>
-
-      <!-- Non-Scrolly Visualization Section -->
-      <section>
       </section>
 
       <!-- Main Scrollytelling Section -->
@@ -65,8 +56,9 @@
 
           <!-- Message #1 -->
           <div class="step" data-scrollama-index="0">
-            <p>Let's see which parts of the world are answering the call to make the pursuit of happiness the national mission.
-            <br><br>In darker blue countries, happiness is increasing quickly. Darker red countries have rapidly falling happiness.</p>
+            <p>The World Happiness Report uses the Gallup World Poll, where respondents are asked to evaluate the quality of their lives on an ladder scale running
+              from 0 to 10, with the bottom rung of the ladder (0) being the worst possible life for them and 10 being the
+              best possible.<br><br>In darker blue countries, happiness is increasing quickly. Darker red countries have rapidly falling happiness. Grey countries show approximately steady happiness levels.</p>
           </div>
           
           <!-- Message #2 -->
@@ -81,7 +73,7 @@
 
           <!-- Message #4 -->
           <div class="step" data-scrollama-index="3">
-            <p>Rwanda, Tanzania, Malawi, Zambia, Zimbabwe, and Botswana show some of the most unfavorable trends in happiness among the world's nations.<br><br>These Southern African countries show between -1.8% and -2.9% change in happiness per year.</p>
+            <p>Rwanda, Tanzania, Malawi, Zambia, Zimbabwe, and Botswana show some of the most unfavorable trends in happiness among the world's nations.<br><br>These Southern African countries show between -1.5% and -2.5% change in happiness per year.</p>
           </div>
 
           <!-- Message #5 -->
@@ -91,16 +83,22 @@
 
           <!-- Message #6 -->
           <div class="step" data-scrollama-index="5">
-            <p>Within this group of nations, Senegal, Burkina Faso, Congo (Brazzaville), Cameroon, Togo, and Benin show gains in happiness of more than 2% per year.</p>
+            <p>Within this group of nations, Congo (Brazzaville), Togo, and Benin show gains in happiness of more than 2% per year.</p>
           </div>
 
           <!-- Message #7 -->
           <div class="step" data-scrollama-index="6">
-            <p>In particular, the nations Togo and Benin show the fastest increase in national happiness in the entire world, averaging 4.2% and 4.0% per year respectively.<br><br>According to the World Happiness Report, Benin was ranked second-to-last, or 155th, in the world in 2012. In 2020, Benin ranked ahead of China by 7 spots, at 86th.</p>
+            <p>In fact, Togo and Benin show the fastest increases in national happiness in the entire world, averaging 4.2% and 4.0% per year respectively.<br><br>According to the World Happiness Report, Benin was ranked second-to-last, or 155th, in the world in 2012. In 2020, Benin ranked ahead of China by 7 spots, at 86th.</p>
           </div>
 
         </article>
 
+      </section>
+
+      <!-- Non-Scrolly Visualization Section -->
+      <section>
+        <div id="map"></div>
+        <button id="fit">Click a Nation to Zoom In<br>Double-Click to Reset</button>
       </section>
 
       <section id="outro">
