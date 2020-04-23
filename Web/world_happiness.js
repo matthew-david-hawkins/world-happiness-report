@@ -6,8 +6,8 @@ var queryUrl = "https://s3.us-east-2.amazonaws.com/thrum.engineering.com/countri
 function getColor(d) {
   return d < -2.68321 ? '#aa0000' : // darkest red
          d < -1.60993  ? '#b93d3d' : // second darkest red
-         d < -0.53665  ? '#c88686' : // light red
-         d <  0.53664  ? '#d9d9d9' : // grey
+         d < -0.65  ? '#c88686' : // light red 53665
+         d <  0.65 ? '#d9d9d9' : // grey
          d <  1.60993   ? '#78add3' : // light blue
          d <  2.683212   ? '#5082af' : // Darker blue
          d < 900 ?  '#2b5c8a' : // dark blue
