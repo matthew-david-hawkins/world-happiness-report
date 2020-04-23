@@ -119,7 +119,9 @@ d3.json(queryUrl).then(function(countryData){
   function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
+        ontouchstart: highlightFeature,
         mouseout: resetHighlight,
+        ontouchend: resetHighlight,
         click: zoomToFeature
     });
   }
